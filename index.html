@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neat UI — Vanilla</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>NeatUI</span>
+      </div>
+
+      <div class="nav__right">
+        <button id="cmdBtn" class="btn btn--ghost" title="Command Palette (Ctrl+K)">
+          Ctrl+K
+        </button>
+        <button id="themeBtn" class="btn" aria-label="Toggle theme">Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__left">
+        <p class="kicker">Vanilla HTML • CSS • JS</p>
+        <h1>A clean UI with small details developers notice.</h1>
+        <p class="sub">
+          Command palette, keyboard shortcuts, filters, and subtle motion —
+          built with no framework.
+        </p>
+
+        <div class="hero__actions">
+          <button class="btn" id="toastBtn">Trigger Toast</button>
+          <button class="btn btn--ghost" id="shuffleBtn">Shuffle Cards</button>
+        </div>
+
+        <div class="hint">
+          <span class="kbd">Ctrl</span> + <span class="kbd">K</span> opens commands •
+          <span class="kbd">/</span> focuses search •
+          <span class="kbd">Esc</span> closes
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="panel__top">
+          <div>
+            <h3>Status</h3>
+            <p class="muted">UI health + activity</p>
+          </div>
+          <span class="badge" id="statusBadge">Stable</span>
+        </div>
+
+        <div class="panel__grid">
+          <div class="metric">
+            <div class="metric__label">Cards</div>
+            <div class="metric__value" id="metricCards">0</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Filtered</div>
+            <div class="metric__value" id="metricFiltered">0</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Theme</div>
+            <div class="metric__value" id="metricTheme">Dark</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Focus</div>
+            <div class="metric__value" id="metricFocus">None</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <div class="search">
+        <span class="search__icon">⌕</span>
+        <input id="searchInput" type="text" placeholder="Search cards… (press /)" autocomplete="off" />
+        <button id="clearSearch" class="iconBtn" title="Clear">×</button>
+      </div>
+
+      <div class="chips" id="chips"></div>
+    </section>
+
+    <!-- Cards -->
+    <section class="grid" id="grid"></section>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Command Palette -->
+  <div class="modal" id="cmdModal" aria-hidden="true">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="cmd">
+        <div class="cmd__inputRow">
+          <span class="cmd__icon">⌘</span>
+          <input id="cmdInput" type="text" placeholder="Type a command…" autocomplete="off" />
+          <span class="cmd__hint"><span class="kbd">Esc</span></span>
+        </div>
+        <div class="cmd__list" id="cmdList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src=""></script>
+</body>
+</html>
